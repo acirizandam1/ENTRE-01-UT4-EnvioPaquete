@@ -3,7 +3,7 @@ import java.util.Random;
  *  Un objeto de esta clase guarda los datos de un
  *  paquete
  * 
- * @author - 
+ * @author - Aritz Ciriza
  *  
  */
 public class Paquete 
@@ -19,10 +19,8 @@ public class Paquete
      */
     public Paquete()    {
         //TODO
-         
 
     }
-
     /**
      * Constructor 2 
      *  Crea el paquete con el alto, ancho, largo (en cm) indicados
@@ -65,8 +63,8 @@ public class Paquete
      * El volumen = alto x ancho x largo
      */
     public double calcularVolumen() {
-       //TODO
-       return 0;
+        //TODO
+        return 0;
 
     }
 
@@ -76,7 +74,7 @@ public class Paquete
      */
     public double calcularPesoVolumetrico() {
         //TODO
-       return 0;
+        return 0;
 
     }
 
@@ -87,10 +85,9 @@ public class Paquete
      */
     public double calcularPesoFacturable() {
         //TODO
-       return 0;
+        return 0;
 
     }
-
 
     /**
      * Devuelve una copia exacta al objeto actual
@@ -98,7 +95,7 @@ public class Paquete
      */
     public Paquete obtenerCopia() {
         //TODO
-       return null;
+        return null;
 
     }
 
@@ -108,10 +105,10 @@ public class Paquete
      */
     public String toString() {
         //TODO
-       return null;
+        return null;
 
     }
-    
+
     /**
      * Muestra en pantalla el objeto actual
      * Este método se incluye como método de prueba
@@ -121,6 +118,5 @@ public class Paquete
         System.out.println(this.toString());
     }
 
-    
 
 }

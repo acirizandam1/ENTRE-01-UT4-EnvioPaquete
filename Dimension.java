@@ -2,7 +2,7 @@
 /**
  *  Representa una dimensión
  *  
- *  @author - 
+ *  @author - Aritz Ciriza
  */
 public class Dimension  
 {
@@ -45,9 +45,9 @@ public class Dimension
      * Devuelve una copia exacta al objeto actual
      */
     public Dimension obtenerCopia() {
-        //TODO
-        return null;
-
+        Dimension copia = new Dimension(alto, ancho, largo);
+        
+        return copia;
     }
 
     /**
@@ -69,5 +69,4 @@ public class Dimension
         System.out.println(this.toString());
     }
 
-    
 }
