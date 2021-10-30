@@ -55,12 +55,7 @@ public class Dimension
      * (leer enunciado)
      */
     public String toString() {
-
-        // String cadena="";
-        // cadena += System.out.printf("%20s","%20d", "Alto: ", alto + "(cm)");
-        // cadena +=System.out.printf("%20s","%20d", "Ancho: ", ancho + "(cm)");
-        // cadena += System.out.printf("%20s","%20d", "Largo: ", largo + "(cm)");
-        return String.format("%20s","%20d", "%20s%", "Alto: ", alto + "(cm)");
+        return String.format("%-20s" + "%10.2f" + "%-20s", "Alto: ", alto, "(cm)");
     }
 
     /**
