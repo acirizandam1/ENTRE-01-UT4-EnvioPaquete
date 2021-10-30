@@ -21,6 +21,7 @@ public class Paquete
         //TODO
 
     }
+
     /**
      * Constructor 2 
      *  Crea el paquete con el alto, ancho, largo (en cm) indicados
@@ -117,6 +118,5 @@ public class Paquete
     public void print() {
         System.out.println(this.toString());
     }
-
 
 }

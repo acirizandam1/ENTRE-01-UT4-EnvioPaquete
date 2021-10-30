@@ -1,4 +1,4 @@
-
+// in java.util.Formatter
 /**
  *  Representa una dimensión
  *  
@@ -46,7 +46,7 @@ public class Dimension
      */
     public Dimension obtenerCopia() {
         Dimension copia = new Dimension(alto, ancho, largo);
-        
+
         return copia;
     }
 
@@ -55,9 +55,12 @@ public class Dimension
      * (leer enunciado)
      */
     public String toString() {
-        //TODO
-        return null;
 
+        // String cadena="";
+        // cadena += System.out.printf("%20s","%20d", "Alto: ", alto + "(cm)");
+        // cadena +=System.out.printf("%20s","%20d", "Ancho: ", ancho + "(cm)");
+        // cadena += System.out.printf("%20s","%20d", "Largo: ", largo + "(cm)");
+        return String.format("%20s","%20d", "%20s%", "Alto: ", alto + "(cm)");
     }
 
     /**
