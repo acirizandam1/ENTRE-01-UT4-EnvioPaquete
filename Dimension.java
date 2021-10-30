@@ -55,7 +55,12 @@ public class Dimension
      * (leer enunciado)
      */
     public String toString() {
-        return String.format("%-20s" + "%10.2f" + "%-20s", "Alto: ", alto, "(cm)");
+        String cadena ="";
+        cadena += String.format("%20s" +"%10.2f" + "%10s", "Alto: ",alto,  "(cm)"+ "\n" );
+        cadena += String.format("%20s" +"%10.2f" + "%10s", "Ancho: ",ancho,"(cm)" + "\n");
+        cadena += String.format("%20s" +"%10.2f" + "%10s","Largo: ",largo,"(cm)");
+        return cadena;
+        // return String.format("%-20s" + "%10.2f" + "%-20s"+ "\n" + "%-20s" + "%10.2f" + "%-20s"+ "\n" + "%-20s" + "%10.2f" + "%-20s", "Alto: ", alto, "(cm)" , "\n",  "Ancho: ", ancho, "(cm)","\n" , "Largo: ", largo, "(cm)");
     }
 
     /**
