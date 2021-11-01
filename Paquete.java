@@ -30,7 +30,7 @@ public class Paquete
      */
     public Paquete(double alto, double ancho, double largo)    {
         dimension = new Dimension(alto, ancho, largo);
-        peso = (Math.random()*(7)+2);
+        peso = (Math.random()*(7)+2);//falta revisar las posibilidades de este metodo
     }
 
     /**
@@ -39,8 +39,8 @@ public class Paquete
      * 
      */
     public Paquete(Dimension dimension, double peso)    {
-        //TODO
-
+        this.dimension = dimension;
+        this.peso = peso;
     }
 
     /**
