@@ -108,9 +108,16 @@ public class Paquete
      *  (leer enunciado)
      */
     public String toString() {
-        //TODO
-        return null;
 
+        String cadena ="";
+        cadena += String.format("%20s", "Descripción del paquete: " + "\n");
+        cadena += String.format("%20s" + "%10.2f" + "%10s", "Alto: ",dimension.getAlto(), "(cm)"+ "\n" );
+        cadena += String.format("%20s" +"%10.2f" + "%10s", "Ancho: ",dimension.getAncho(),"(cm)" + "\n");
+        cadena += String.format("%20s" +"%10.2f" + "%10s","Largo: ",dimension.getLargo(),"(cm)" + "\n");
+        cadena += String.format("%20s" +"%10.2f" + "%10s", "Peso real: ",peso,  "(kg)"+ "\n" );
+        cadena += String.format("%20s" +"%10.2f" + "%10s", "Volumen: ",calcularVolumen(),"(cm3)" + "\n");
+        cadena += String.format("%20s" +"%10.2f" + "%10s","Peso volumétrico: ",calcularPesoVolumetrico(),"(kg)");
+        return cadena;
     }
 
     /**
