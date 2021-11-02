@@ -73,9 +73,9 @@ public class Paquete
      * Peso volumétrico = volumen del paquete / 5000
      */
     public double calcularPesoVolumetrico() {
-        //TODO
-        return 0;
+        double volumen = calcularVolumen() / 5000;
 
+        return volumen;   
     }
 
     /**
@@ -84,9 +84,13 @@ public class Paquete
      *      
      */
     public double calcularPesoFacturable() {
-        //TODO
-        return 0;
-
+        double pesoVolumetrico = calcularPesoVolumetrico();
+        if( peso > pesoVolumetrico) {
+            return peso;
+        }
+        else {   
+            return pesoVolumetrico;
+        }
     }
 
     /**
