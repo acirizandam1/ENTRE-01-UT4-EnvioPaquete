@@ -98,8 +98,8 @@ public class Paquete
      * Se obtienen copias también de los objetos que contenga
      */
     public Paquete obtenerCopia() {
-        //TODO
-        return null;
+        Paquete copia = new Paquete(dimension,peso);
+        return copia;
 
     }
 
