@@ -9,8 +9,8 @@ import java.util.Random;
 public class Paquete 
 {
     private Random generador;
-    private Dimension dimension;
-    private double peso;
+    public Dimension dimension;
+    public double peso;
 
     /**
      * Constructor 1 sin parámetros
