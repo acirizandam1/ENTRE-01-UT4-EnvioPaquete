@@ -56,13 +56,13 @@ public class Envio
      */
     public int getNumeroPaquetes() {
         int paquetes = 0;
-        if(paquete1 != null || paquete2 != null || paquete3 != null) {
+        if(paquete1 != null) {
             paquetes = 1;
         }
-        else if( paquete1 != null && paquete2 != null || paquete2 != null && paquete3 != null || paquete1 != null && paquete3 != null) {
-            paquetes = 1;
+        if( paquete2 != null) {
+            paquetes = 2;
         }
-        else if ( paquete1 != null && paquete2 != null && paquete3 != null) {
+        if ( paquete3 != null) {
             paquetes =3;
         }
         return paquetes;
@@ -87,17 +87,17 @@ public class Envio
     public void addPaquete(Paquete paquete) {
 
         if(paquete1 == null) {
-            this.paquete1 = new Paquete(paquete.dimension, paquete.peso);
+            this.paquete1 = paquete;
         }
         else if (paquete2 == null) {
-            this.paquete2 = new Paquete(paquete.dimension, paquete.peso);
+            this.paquete2 = paquete;
 
         }
         else if(paquete3 == null) {
-            this.paquete3 = new Paquete(paquete.dimension, paquete.peso);
+            this.paquete3 = paquete;
 
         }
-        else {
+        else if( paquete3 !=null) {
             System.out.println("No se admiten más paquetes en el envio");
         }
     }
@@ -116,17 +116,18 @@ public class Envio
     public double calcularCosteTotalEnvio() {
         double importe = 0 ;
         if(paquete2 == null && paquete3 == null ) {
-            importe += Math.ceil(paquete1.getPeso()) * PRECIO_KILO;
+            importe= Math.ceil(paquete1.calcularPesoFacturable());
 
         }
         else if (paquete3 == null) {
-            importe += Math.ceil(paquete1.getPeso()) * PRECIO_KILO + Math.ceil(paquete2.getPeso()) * PRECIO_KILO;
+            importe = Math.ceil(paquete1.calcularPesoFacturable())+ Math.ceil(paquete2.calcularPesoFacturable());
         }
         else {
-            importe += Math.ceil(paquete1.getPeso()) * PRECIO_KILO + Math.ceil(paquete2.getPeso()) * PRECIO_KILO + Math.ceil(paquete3.getPeso());
+            importe = Math.ceil(paquete1.calcularPesoFacturable()) + Math.ceil(paquete2.calcularPesoFacturable()) + Math.ceil(paquete3.calcularPesoFacturable());
         }
-        return importe;
-        //esta forma de hacerlo me parece un poco chapucera pero es lo mejor que se me ha ocurrido para hacer que funcione
+        double importeTotal = importe * PRECIO_KILO;
+        return importeTotal;
+
     }
 
     /**
@@ -135,27 +136,30 @@ public class Envio
      * (leer enunciado)
      */
     public String toString() {
+        // String importe = ( "Coste del envio: " + calcularCosteTotalEnvio() + "€\n");
+        // String cadena = ("Nº de paquetes: " + getNumeroPaquetes() + "\n");
 
         String cadena ="";
+        Double costeDeEnvio = calcularCosteTotalEnvio();
+        cadena += String.format("%s" + "%-1d" + "\n", "Nº de paquetes: ",getNumeroPaquetes());
         if(getNumeroPaquetes() == 1) {
-            cadena += String.format("Nº de paquetes: " + getNumeroPaquetes() + "\n");
+
             cadena += paquete1.toString() +"\n";
-            cadena += String.format("%2.2d, Coste del Envio = ", Math.ceil(paquete1.getPeso()) * PRECIO_KILO);
+
         }
+
         else if (getNumeroPaquetes() == 2) {
-            cadena += String.format("Nº de paquetes: " + getNumeroPaquetes() + "\n");
+
             cadena += paquete1.toString() +"\n";
             cadena += paquete2.toString() +"\n";
-            cadena += String.format("%2.2d, Coste del Envio = ", Math.ceil(paquete1.getPeso()) * PRECIO_KILO + Math.ceil(paquete2.getPeso()) * PRECIO_KILO);
         }
         else {
-            cadena += String.format("Nº de paquetes: " + getNumeroPaquetes() + "\n");
             cadena += paquete1.toString() +"\n";
             cadena += paquete2.toString() +"\n";
             cadena += paquete2.toString() + "\n";
-            cadena += String.format("%2.2d, Coste del Envio = ", Math.ceil(paquete1.getPeso()) * PRECIO_KILO + Math.ceil(paquete2.getPeso()) * PRECIO_KILO + Math.ceil(paquete3.getPeso()));
-        }
 
+        }
+        cadena += String.format("%25s" + "%10.2f" + "%-10s", "Coste del Envio = ", costeDeEnvio,"€");
         return cadena;
     }
 

@@ -9,8 +9,8 @@ import java.util.Random;
 public class Paquete 
 {
     private Random generador;
-    public Dimension dimension;
-    public double peso;
+    private Dimension dimension;
+    private double peso;
 
     /**
      * Constructor 1 sin parámetros
@@ -29,8 +29,9 @@ public class Paquete
      *  Se crea aquí el generador
      */
     public Paquete(double alto, double ancho, double largo)    {
+        generador = new Random();
         dimension = new Dimension(alto, ancho, largo);
-        peso = (Math.random()*(7)+2);//falta revisar las posibilidades de este metodo
+        peso = generador.nextInt(7) +2;
     }
 
     /**
@@ -110,13 +111,12 @@ public class Paquete
     public String toString() {
 
         String cadena ="";
-        cadena += String.format("%20s", "Descripción del paquete: " + "\n");
-        cadena += String.format("%20s" + "%10.2f" + "%10s", "Alto: ",dimension.getAlto(), "(cm)"+ "\n" );
-        cadena += String.format("%20s" +"%10.2f" + "%10s", "Ancho: ",dimension.getAncho(),"(cm)" + "\n");
-        cadena += String.format("%20s" +"%10.2f" + "%10s","Largo: ",dimension.getLargo(),"(cm)" + "\n");
-        cadena += String.format("%20s" +"%10.2f" + "%10s", "Peso real: ",peso,  "(kg)"+ "\n" );
-        cadena += String.format("%20s" +"%10.2f" + "%10s", "Volumen: ",calcularVolumen(),"(cm3)" + "\n");
-        cadena += String.format("%20s" +"%10.2f" + "%10s","Peso volumétrico: ",calcularPesoVolumetrico(),"(kg)");
+        cadena += String.format("%20s", "Descripción del paquete:" + "\n");
+        cadena += String.format("%20s",dimension.toString());
+        
+        cadena += String.format("%20s" +"%10.2f" + "%-10s","Peso real:",peso,"(kg)"+ "\n" );
+        cadena += String.format("%20s" +"%10.2f" + "%-10s","Volumen:",calcularVolumen(),"(cm3)" + "\n");
+        cadena += String.format("%20s" +"%10.2f" + "%-10s","Peso volumétrico:",calcularPesoVolumetrico(),"(kg)");
         return cadena;
     }
 
